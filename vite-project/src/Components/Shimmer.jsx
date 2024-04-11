@@ -1,24 +1,11 @@
-import { shimmer_card_unit } from "../constants";
-
-// Shimmer card to display with animation
-const CardShimmer = () => {
-  return (
-    <div className="shimmer-card">
-      <div className="shimmer-img stroke animate"></div>
-      <div className="shimmer-title stroke animate"></div>
-      <div className="shimmer-tags stroke animate "></div>
-      <div className="shimmer-details stroke animate "></div>
-    </div>
-  );
-};
+import React from "react";
 
 const Shimmer = () => {
   return (
-    <div className="shimmer-container">
-      {new Array(shimmer_card_unit).fill(0).map((element, index) => {
-        return <CardShimmer key={index} />;
-      })}
+    <div class="flex justify-center items-center h-screen">
+      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 animate-spin bg-gradient-to-r from-blue-400 to-orange-500 "></div>
     </div>
   );
 };
+
 export default Shimmer;

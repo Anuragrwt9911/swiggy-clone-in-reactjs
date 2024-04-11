@@ -10,7 +10,6 @@ import { filterData } from "./utils/helper";
 import useOnline from "./utils/useOnline";
 import { RestaurantCards } from "../constants";
 import UserContext from "./utils/UserContext";
-import HeadlineCards from "./headlineCards";
 
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {
@@ -36,7 +35,7 @@ const Body = () => {
 
       const headerItems =
         json?.data?.cards[0]?.card?.card?.imageGridCards?.info;
-      console.log(headerItems);
+      // console.log(headerItems);
 
       // initialize checkJsonData() function to check Swiggy Restaurant data
       async function checkJsonData(jsonData) {
@@ -96,7 +95,7 @@ const Body = () => {
       <div className="bg-slate-50 my-4 flex justify-center items-center">
         <input
           type="text"
-          className="px-5 py-3 border font-medium  border-black rounded-l-full focus:outline-none w-[500px]  text-xl"
+          className="px-5 py-3 border font-[poppins] border-black rounded-l-full focus:outline-none w-[250px] md:w-[500px]  text-lg"
           placeholder="Search for restaurants"
           value={searchText}
           // update the state variable searchText when we typing in input box
@@ -113,7 +112,7 @@ const Body = () => {
           }
         /> */}
         <button
-          className="rounded-r-full px-3 py-[13px] w-28 bg-blue-400 hover:bg-blue-700 text-white  text-xl duration-300 "
+          className="rounded-r-full  px-2 md:px-3 py-[13px] w-16 md:w-20 bg-blue-400 hover:bg-blue-700 text-white  text-xl duration-300 "
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allRestaurants);
@@ -123,9 +122,6 @@ const Body = () => {
         </button>
       </div>
       {/***headlineCards */}
-      <div>
-        <HeadlineCards />
-      </div>
 
       {errorMessage && <div class="error-container">{errorMessage}</div>}
 
@@ -133,8 +129,9 @@ const Body = () => {
       {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className=" grid grid-rows-3 grid-cols-3 sm:grid-cols-4 md:grid-cols-4 sm:max-w-[1000px] mx-24 bg-slate-50 p-4 gap-y-6 gap-x-8  my-3">
+        <div className=" grid md:grid-rows-4 grid-rows-2 md:grid-cols-4 grid-cols-2 mx-4 md:mx-24 bg-slate-50  md:gap-y-8 gap-x-2 gap-y-10 my-0 md:my-8">
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+
           {filteredRestaurants.map((restaurant) => {
             return (
               <Link

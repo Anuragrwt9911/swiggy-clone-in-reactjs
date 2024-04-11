@@ -6,8 +6,8 @@ const Footer = () => {
   const { user } = useContext(UserContext);
   const year = new Date().getFullYear();
   return (
-    <div className="footer">
-      <p>{user.email}</p>
+    <div className="footer flex flex-col justify-center items-center gap-2">
+      <p className="block">{user.email}</p>
       Created By
       <i className="fa-solid fa-heart"></i>
       <a href="https://www.linkedin.com/in/chetannada/" target="_blank">
@@ -15,9 +15,7 @@ const Footer = () => {
       </a>
       <i className="fa-solid fa-copyright"></i>
       {year}
-      <strong>
-        Food<span>Fire</span>
-      </strong>
+      <span className="font-bold">Swaadisht</span>
     </div>
   );
 };
