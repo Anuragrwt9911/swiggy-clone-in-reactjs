@@ -8,8 +8,9 @@ import Shimmer from "./Shimmer"; /* This is default export */
 import { Link } from "react-router-dom";
 import { filterData } from "./utils/helper";
 import useOnline from "./utils/useOnline";
-import { RestaurantCards } from "../constants";
+import { RestaurantCards, swiggy_api_URL } from "../constants";
 import UserContext from "./utils/UserContext";
+import RestaurantMenu from "./RestaurantMenu";
 
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {
@@ -35,6 +36,8 @@ const Body = () => {
 
       const headerItems =
         json?.data?.cards[0]?.card?.card?.imageGridCards?.info;
+      console.log(headerItems);
+
       // console.log(headerItems);
 
       // initialize checkJsonData() function to check Swiggy Restaurant data
@@ -70,7 +73,11 @@ const Body = () => {
       setFilteredRestaurants(filteredData);
       setErrorMessage("");
       if (filteredData?.length === 0) {
-        setErrorMessage("No matches restaurant found");
+        setErrorMessage("No restaurant found😴");
+
+        <span className="text-xl font-bold font-[poppins]">
+          No restaurant found!
+        </span>;
       }
     } else {
       setErrorMessage("");
@@ -83,7 +90,9 @@ const Body = () => {
     console.log("Offline: Rendering message");
     return (
       <div className="bg-red-600 text-white text-2xl font-bold flex justify-center items-center h-screen">
-        <span>Offline, Plz check your internet Connection!!!</span>
+        <span className="text-xl font-bold font-[poppins]">
+          Offline, Plz check your internet Connection!!!
+        </span>
       </div>
     );
   }
@@ -123,13 +132,17 @@ const Body = () => {
       </div>
       {/***headlineCards */}
 
-      {errorMessage && <div class="error-container">{errorMessage}</div>}
+      {errorMessage && (
+        <div class="error-container md:text-normal text-2xl font-bold font-[poppins] text-center">
+          {errorMessage}
+        </div>
+      )}
 
       {/* if restaurants data is not fetched then display Shimmer UI after the fetched data display restaurants cards */}
       {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className=" grid md:grid-rows-4 grid-rows-2 md:grid-cols-4 grid-cols-2 mx-4 md:mx-24 bg-slate-50  md:gap-y-8 gap-x-2 gap-y-10 my-0 md:my-8">
+        <div className="md:w-auto h-full w-full p-1 mt-14 grid md:grid-rows-4 grid-rows-2 md:grid-cols-4 grid-cols-2 mx-2 md:mx-24 bg-slate-50  md:gap-y-8 md:gap-x-4  gap-x-8 gap-y-4 my-0 md:my-8">
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
 
           {filteredRestaurants.map((restaurant) => {

@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react";
-import { swiggy_menu_api_URL } from "../constants";
-import { menuAPI } from "../constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
-import { ITEM_IMG_CDN_URL } from "../constants";
-import "/src/main.css";
-import MenuShimmer from "./MenuShimmer";
+
 import useRestaurant from "./utils/useRestaurant";
 import { addItem } from "./utils/cartSlice";
 import { useDispatch } from "react-redux";

@@ -6,12 +6,12 @@ const Footer = () => {
   const { user } = useContext(UserContext);
   const year = new Date().getFullYear();
   return (
-    <div className="footer flex flex-col justify-center items-center gap-2">
-      <p className="block">{user.email}</p>
+    <div className=" footer text-center font-[poppins] mt-20 mb-4">
+      <p className="block text-lg">{user.email}</p>
       Created By
       <i className="fa-solid fa-heart"></i>
-      <a href="https://www.linkedin.com/in/chetannada/" target="_blank">
-        Anurag Rawat
+      <a href="https://www.linkedin.com/in/AnuragRawt🚀/" target="_blank">
+        <p className="text-lg font-bold">AnuragRawat🚀</p>
       </a>
       <i className="fa-solid fa-copyright"></i>
       {year}

@@ -15,10 +15,10 @@ const RestaurantCard = ({
 }) => {
   // const { user } = useContext(UserContext);
   return (
-    <div className="md:w-full  w-[10rem] font-[poppins] md:shadow-none shadow-md rounded-xl ">
-      <div className="  hover:scale-95  duration-300  p-2">
+    <div className="md:w-full  w-[12rem] font-[poppins] md:shadow-none  rounded-xl ">
+      <div className="  hover:scale-95  duration-300  md:p-2 p-0">
         <img
-          className="rounded-[20px] h-[70px] w-[100px] object-cover md:h-[150px] md:w-full"
+          className="rounded-[20px] h-[10rem] w-full object-cover md:h-[150px] md:w-full"
           src={IMG_CDN_URL + cloudinaryImageId}
         />
         <h2 className="text-xl font-medium mt-3">{name}</h2>
